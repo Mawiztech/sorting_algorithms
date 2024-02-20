@@ -56,23 +56,6 @@ void lomuto_sort(int *array, int low, int high)
 }
 
 /**
- * quick_sort_recursive - Sorts the array using Quick sort algorithm recursively.
- * @array: Pointer to the array to be sorted.
- * @low: Starting index of the partition.
- * @high: Ending index of the partition.
- */
-void quick_sort_recursive(int *array, int low, int high)
-{
-    if (low < high)
-    {
-        int pi = lomuto_partition(array, low, high);
-
-        quick_sort_recursive(array, low, pi - 1);
-        quick_sort_recursive(array, pi + 1, high);
-    }
-}
-
-/**
  * quick_sort - Sorts an array of integers in ascending order using
  *              the Quick sort algorithm with Lomuto partition scheme.
  * @array: Pointer to the array to be sorted.
