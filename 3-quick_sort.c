@@ -75,3 +75,41 @@ void quick_sort(int *array, int low, int high)
         quick_sort(array, pi + 1, high);
     }
 }
+
+/**
+ * quick_sort_wrapper - Wrapper function to call quick_sort.
+ * @array: Pointer to the array to be sorted.
+ * @size: Size of the array.
+ */
+void quick_sort_wrapper(int *array, size_t size)
+{
+    if (array == NULL || size < 2)
+        return;
+
+    quick_sort(array, 0, size - 1);
+}
+
+int main(void)
+{
+    int array[] = {7, 2, 1, 6, 8, 5, 3, 4};
+    size_t size = sizeof(array) / sizeof(array[0]);
+
+    printf("Original array: ");
+    for (size_t i = 0; i < size; i++)
+        printf("%d ", array[i]);
+    printf("\n");
+
+    printf("Lomuto sort:\n");
+    lomuto_sort(array, 0, size - 1);
+    for (size_t i = 0; i < size; i++)
+        printf("%d ", array[i]);
+    printf("\n");
+
+    printf("Quick sort:\n");
+    quick_sort_wrapper(array, size);
+    for (size_t i = 0; i < size; i++)
+        printf("%d ", array[i]);
+    printf("\n");
+
+    return 0;
+}
